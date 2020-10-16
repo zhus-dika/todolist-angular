@@ -1,0 +1,25 @@
+a {
+  text-decoration: none;
+  color: darkgoldenrod;
+  margin-right: 5%;
+}
+h5 {
+  margin-right: 5%;
+}
+h2 {
+  margin-left: 50px;
+}
+.header-container{
+  background: cadetblue;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.header-login {
+  display: flex;
+  width: 15%;
+}

@@ -2,13 +2,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { HeaderTopComponent } from './header-top/header-top.component';
+import { TodoitemListComponent} from './todoitem-list/todoitem-list.component';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderTopComponent
   ],
   imports: [
-    BrowserModule
+      BrowserModule,
+      RouterModule.forRoot([
+        { path: '', component: TodoitemListComponent }
+      ])
   ],
   providers: [],
   bootstrap: [AppComponent]
