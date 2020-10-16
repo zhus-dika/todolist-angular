@@ -2,6 +2,25 @@
   display: flex;
   flex-direction: column;
 }
+.filter-select {
+  height: 30px;
+  margin-bottom: 20px;
+  width: 30%;
+}
+.todolist-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.new-item {
+  text-decoration: none;
+  background: cadetblue;
+  color: white;
+  width: 5%;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 25px;
+}
 .todoitemlist {
   display: flex;
   flex-direction: column;

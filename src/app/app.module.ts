@@ -7,7 +7,8 @@ import { TodoitemListComponent} from './todoitem-list/todoitem-list.component';
 import {RouterModule} from '@angular/router';
 import { TodoitemComponent } from './todoitem/todoitem.component';
 import { TodoitemDetailsComponent } from './todoitem-details/todoitem-details.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { NewTodoitemComponent } from './new-todoitem/new-todoitem.component';
 
 @NgModule({
   declarations: [
@@ -15,15 +16,18 @@ import {ReactiveFormsModule} from '@angular/forms';
     HeaderTopComponent,
     TodoitemComponent,
     TodoitemListComponent,
-    TodoitemDetailsComponent
+    TodoitemDetailsComponent,
+    NewTodoitemComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
       {path: '', component: TodoitemListComponent},
-      {path: 'todoitem/:todoitemId', component: TodoitemDetailsComponent}
+      {path: 'todoitem/:todoitemId', component: TodoitemDetailsComponent},
+      {path: 'new', component: NewTodoitemComponent}
     ]),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

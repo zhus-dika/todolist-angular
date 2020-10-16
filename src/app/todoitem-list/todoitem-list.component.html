@@ -1,6 +1,15 @@
 <div class="container-todoitemlist">
   <h2> Todoitems </h2>
-  <div class="todoitemlist">
-    <app-todoitem  *ngFor="let todoitem of todoitems" [todoitem]="todoitem"></app-todoitem>
+  <div class="todolist-row">
+    <select (change)="changeFilter()" [(ngModel)]="selectedStatus" class="filter-select">
+      <option value="all">All</option>
+      <option value="created">Created</option>
+      <option value="completed">Completed</option>
+    </select>
+    <a class="new-item" [routerLink]="['new']">New item</a>
+  </div>
+  <div *ngIf="filteredTodoitems.length===0">No items found</div>
+  <div class="todoitemlist" *ngIf="filteredTodoitems.length">
+    <app-todoitem  *ngFor="let todoitem of filteredTodoitems" [todoitem]="todoitem"></app-todoitem>
   </div>
 </div>

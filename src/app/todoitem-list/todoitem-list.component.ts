@@ -8,9 +8,15 @@ import { todoitems } from '../todoitems';
 })
 export class TodoitemListComponent implements OnInit {
   todoitems = todoitems;
+  filteredTodoitems = todoitems;
+  selectedStatus = 'all';
   constructor() { }
 
   ngOnInit(): void {
+    this.filteredTodoitems = this.todoitems.filter(ele => ele.status === this.selectedStatus || this.selectedStatus === 'all');
   }
-
+  // tslint:disable-next-line:typedef
+  changeFilter() {
+    this.filteredTodoitems = this.todoitems.filter(ele => ele.status === this.selectedStatus || this.selectedStatus === 'all');
+  }
 }
