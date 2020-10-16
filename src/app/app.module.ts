@@ -5,11 +5,14 @@ import { AppComponent } from './app.component';
 import { HeaderTopComponent } from './header-top/header-top.component';
 import { TodoitemListComponent} from './todoitem-list/todoitem-list.component';
 import {RouterModule} from '@angular/router';
+import { TodoitemComponent } from './todoitem/todoitem.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderTopComponent
+    HeaderTopComponent,
+    TodoitemComponent,
+    TodoitemListComponent
   ],
   imports: [
       BrowserModule,

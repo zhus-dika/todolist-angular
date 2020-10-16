@@ -1,0 +1,12 @@
+<div class="todoitem-container">
+  <div class="todoitem-div">{{todoitem.id}}</div>
+  <div class="todoitem-div">{{todoitem.created}}</div>
+  <div class="todoitem-div">{{todoitem.status}}</div>
+  <div class="todoitem-div">{{todoitem.content}}</div>
+  <div class="todoitem-div">
+    <div class="buttons">
+      <a class="view-button" [routerLink]="['/']">View</a>
+      <button (click)="remove()" class="delete-button">Delete</button>
+    </div>
+  </div>
+</div>

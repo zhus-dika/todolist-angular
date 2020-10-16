@@ -1,0 +1,12 @@
+.container-todoitemlist {
+  display: flex;
+  flex-direction: column;
+  color: darkgoldenrod;
+}
+.todoitemlist {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid darkgrey;
+  border-radius: 2px;
+  color: black;
+}

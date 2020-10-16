@@ -12,10 +12,9 @@ h2 {
 .header-container{
   background: cadetblue;
   width: 100%;
-  position: absolute;
   top: 0;
   left: 0;
-  padding: 20px;
+  padding: 10px;
   display: flex;
   justify-content: space-between;
 }

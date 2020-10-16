@@ -1,1 +1,6 @@
-<p>todoitem-list works!</p>
+<div class="container-todoitemlist">
+  <h2> Todoitems </h2>
+  <div class="todoitemlist">
+    <app-todoitem  *ngFor="let todoitem of todoitems" [todoitem]="todoitem"></app-todoitem>
+  </div>
+</div>
