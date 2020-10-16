@@ -1,0 +1,26 @@
+<div class="todoitem-details-container">
+  <h2>Todoitem details</h2>
+  <form (ngSubmit)="saveChanges()" class="todoitem-form" [formGroup]="detailsForm">
+    <div class="form-item">
+      <label for="id">ID</label>
+      <div class="form-row" id="id">{{todoitem.id}}</div>
+    </div>
+    <div class="form-item">
+      <label for="created">Created</label>
+      <div class="form-row" id="created">{{todoitem.created}}</div>
+    </div>
+    <div class="form-item">
+      <label for="status">Status</label>
+      <select class="form-row" id="status">
+        <option class="form-option" value="created" [selected]="'created'===todoitem.status">Created</option>
+        <option class="form-option" value="completed" [selected]="'completed'===todoitem.status">Completed</option>
+      </select>
+    </div>
+    <div class="form-item">
+      <label for="content">Content</label>
+      <input class="form-row" id="content" formControlName="detailsForm.content.value">
+    </div>
+    <a [routerLink]="['']" class="back-button">Back</a>
+    <button class="submit-button" type="submit" [disabled]="!detailsForm.valid">Submit</button>
+  </form>
+</div>

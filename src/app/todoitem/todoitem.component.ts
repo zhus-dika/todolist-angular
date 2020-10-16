@@ -8,6 +8,7 @@ import { Input } from '@angular/core';
 })
 export class TodoitemComponent implements OnInit {
   @Input() todoitem;
+  todoitemId: number;
   constructor() { }
 
   ngOnInit(): void {

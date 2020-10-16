@@ -1,7 +1,6 @@
 .container-todoitemlist {
   display: flex;
   flex-direction: column;
-  color: darkgoldenrod;
 }
 .todoitemlist {
   display: flex;

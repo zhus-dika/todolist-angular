@@ -5,7 +5,7 @@
   <div class="todoitem-div">{{todoitem.content}}</div>
   <div class="todoitem-div">
     <div class="buttons">
-      <a class="view-button" [routerLink]="['/']">View</a>
+      <a class="view-button" [routerLink]="['todoitem', todoitem.id]">View</a>
       <button (click)="remove()" class="delete-button">Delete</button>
     </div>
   </div>
