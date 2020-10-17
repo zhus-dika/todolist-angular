@@ -1,0 +1,20 @@
+<form [formGroup]="registerForm" class="login-form" (ngSubmit)="register()">
+  <h3>Register</h3>
+  <div class="form-row">
+    <label class="label" for="login">Username</label>
+    <input id="login" formControlName="login"  placeholder="Your username">
+  </div>
+  <div class="form-row">
+    <label class="label" for="email">Email</label>
+    <input id="email" formControlName="email"  placeholder="Your email">
+  </div>
+  <div class="form-row">
+    <label for="password">Password</label>
+    <input type="password" id="password" formControlName="password">
+  </div>
+  <div class="form-row">
+    <label for="repeatPassword">Repeat password</label>
+    <input type="password" id="repeatPassword" formControlName="repeatPassword">
+  </div>
+  <button type="submit" [disabled]="registerForm.invalid" >Submit</button>
+</form>
