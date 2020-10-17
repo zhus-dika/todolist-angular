@@ -1,11 +1,6 @@
 <form [formGroup]="registerForm" class="login-form" (ngSubmit)="register()">
   <h3>Register</h3>
   <div class="form-row">
-    <label class="label" for="login">Username</label>
-    <input id="login" formControlName="login"  placeholder="Your username">
-  </div>
-  <span class="helper-text" *ngIf="registerForm.get('login').invalid&&registerForm.get('login').touched">This field is required</span>
-  <div class="form-row">
     <label class="label" for="email">Email</label>
     <input id="email" formControlName="email"  placeholder="Your email">
   </div>
@@ -22,5 +17,5 @@
     <input type="password" id="repeatPassword" formControlName="repeatPassword">
   </div>
   <span class="helper-text" *ngIf="registerForm.get('repeatPassword').invalid&&registerForm.get('repeatPassword').touched">This field is required</span>
-  <button type="submit" [disabled]="registerForm.invalid" >Submit</button>
+  <button type="submit" [disabled]="registerForm.invalid || registerForm.disabled" >Submit</button>
 </form>

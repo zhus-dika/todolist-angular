@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, Validators} from '@angular/forms';
+import {AuthService} from '../shared/services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -8,20 +9,13 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
   registerForm = this.fb.group({
-    login: [
-      '',
-      [
-        Validators.required,
-        Validators.minLength(1),
-        Validators.maxLength(50)
-      ],
-    ],
     email: [null, [Validators.required, Validators.email]],
     password: [null, [Validators.required, Validators.minLength(4)]],
     repeatPassword: [null, [Validators.required, Validators.minLength(4)]]
   });
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private auth: AuthService
   ) {
 
   }
@@ -30,6 +24,11 @@ export class RegisterComponent implements OnInit {
   }
   // tslint:disable-next-line:typedef
   register() {
-    console.log(this.registerForm);
+    this.registerForm.disable();
+    const user = {
+      username: this.registerForm.get('email').value,
+      password: this.registerForm.get('password').value
+    }
+    this.auth.register();
   }
 }

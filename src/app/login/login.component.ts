@@ -1,30 +1,49 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../shared/services/auth.service';
+import {Subscription} from 'rxjs';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
+  aSub: Subscription;
   loginForm = this.fb.group({
-    login: [null, [Validators.required]],
+    username: [null, [Validators.required]],
     password: [null, [Validators.required]]
   });
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private fb: FormBuilder,
     private auth: AuthService) {
   }
   ngOnInit(): void {
+    this.route.queryParams.subscribe((params: Params) => {
+      if (params['registered']){
+        //Now you can login to system
+      } else if(params['accessdenied']){
+        //You have to authorize
+      }
+    })
   }
   // tslint:disable-next-line:typedef
+  ngOnDestroy() {
+    if (this.aSub) {
+      this.aSub.unsubscribe();
+    }
+  }
+
+  // tslint:disable-next-line:typedef
   login() {
-    this.auth.login(this.loginForm.value).subscribe(
-      () => console.log('login success'),
+    this.loginForm.disable();
+    this.aSub = this.auth.login(this.loginForm.value).subscribe(
+      () => this.router.navigate(['']),
       error => {
         console.warn('error');
+        this.loginForm.enable();
       }
     );
   }
