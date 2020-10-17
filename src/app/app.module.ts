@@ -9,6 +9,7 @@ import { TodoitemComponent } from './todoitem/todoitem.component';
 import { TodoitemDetailsComponent } from './todoitem-details/todoitem-details.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NewTodoitemComponent } from './new-todoitem/new-todoitem.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -17,14 +18,16 @@ import { NewTodoitemComponent } from './new-todoitem/new-todoitem.component';
     TodoitemComponent,
     TodoitemListComponent,
     TodoitemDetailsComponent,
-    NewTodoitemComponent
+    NewTodoitemComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
       {path: '', component: TodoitemListComponent},
       {path: 'todoitem/:todoitemId', component: TodoitemDetailsComponent},
-      {path: 'new', component: NewTodoitemComponent}
+      {path: 'new', component: NewTodoitemComponent},
+      {path: 'login', component: LoginComponent}
     ]),
     ReactiveFormsModule,
     FormsModule
