@@ -4,17 +4,23 @@
     <label class="label" for="login">Username</label>
     <input id="login" formControlName="login"  placeholder="Your username">
   </div>
+  <span class="helper-text" *ngIf="registerForm.get('login').invalid&&registerForm.get('login').touched">This field is required</span>
   <div class="form-row">
     <label class="label" for="email">Email</label>
     <input id="email" formControlName="email"  placeholder="Your email">
   </div>
+  <span class="helper-text" *ngIf="registerForm.get('email').errors['required']&&registerForm.get('email').touched">This field is required</span>
+  <span class="helper-text" *ngIf="registerForm.get('email').errors['email']&&registerForm.get('email').touched">This field must be email address</span>
   <div class="form-row">
     <label for="password">Password</label>
     <input type="password" id="password" formControlName="password">
   </div>
+  <span class="helper-text" *ngIf="registerForm.get('password').errors['required']&&registerForm.get('password').touched">This field is required</span>
+  <span class="helper-text" *ngIf="registerForm.get('password').errors['minlength']&&registerForm.get('password').touched">The password must contain at least 4 chars</span>
   <div class="form-row">
     <label for="repeatPassword">Repeat password</label>
     <input type="password" id="repeatPassword" formControlName="repeatPassword">
   </div>
+  <span class="helper-text" *ngIf="registerForm.get('repeatPassword').invalid&&registerForm.get('repeatPassword').touched">This field is required</span>
   <button type="submit" [disabled]="registerForm.invalid" >Submit</button>
 </form>

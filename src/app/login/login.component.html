@@ -2,11 +2,13 @@
   <h3>Login</h3>
   <div class="form-row">
     <label class="label" for="login">Username</label>
-    <input id="login" formControlName="login">
+      <input id="login" formControlName="login">
   </div>
+  <span class="helper-text" *ngIf="loginForm.get('login').invalid&&loginForm.get('login').touched">This field is required</span>
   <div class="form-row">
     <label for="password">Password</label>
     <input type="password" id="password" formControlName="password">
   </div>
+  <span class="helper-text" *ngIf="loginForm.get('password').invalid&&loginForm.get('password').touched">This field is required</span>
   <button type="submit" [disabled]="loginForm.invalid" >Login</button>
 </form>

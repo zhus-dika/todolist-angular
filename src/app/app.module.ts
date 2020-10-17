@@ -4,13 +4,17 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HeaderTopComponent } from './header-top/header-top.component';
 import { TodoitemListComponent} from './todoitem-list/todoitem-list.component';
-import {RouterModule} from '@angular/router';
 import { TodoitemComponent } from './todoitem/todoitem.component';
 import { TodoitemDetailsComponent } from './todoitem-details/todoitem-details.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NewTodoitemComponent } from './new-todoitem/new-todoitem.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import {AppRoutingModule} from './app-routing.module';
+import {RouterModule} from '@angular/router';
+import { AuthLayoutComponent } from './shared/layouts/auth-layout/auth-layout.component';
+import { MainLayoutComponent } from './shared/layouts/main-layout/main-layout.component';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,19 +25,17 @@ import { RegisterComponent } from './register/register.component';
     TodoitemDetailsComponent,
     NewTodoitemComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AuthLayoutComponent,
+    MainLayoutComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot([
-      {path: '', component: TodoitemListComponent},
-      {path: 'todoitem/:todoitemId', component: TodoitemDetailsComponent},
-      {path: 'new', component: NewTodoitemComponent},
-      {path: 'login', component: LoginComponent},
-      {path: 'register', component: RegisterComponent}
-    ]),
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule,
+    RouterModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

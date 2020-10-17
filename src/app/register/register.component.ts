@@ -16,9 +16,9 @@ export class RegisterComponent implements OnInit {
         Validators.maxLength(50)
       ],
     ],
-    email: [null, [Validators.required, Validators.minLength(5), Validators.maxLength(254), Validators.email]],
-    password: [null, [Validators.required, Validators.minLength(4), Validators.maxLength(50)]],
-    repeatPassword: [null, [Validators.required, Validators.minLength(4), Validators.maxLength(50)]]
+    email: [null, [Validators.required, Validators.email]],
+    password: [null, [Validators.required, Validators.minLength(4)]],
+    repeatPassword: [null, [Validators.required, Validators.minLength(4)]]
   });
   constructor(
     private fb: FormBuilder
