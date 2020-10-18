@@ -14,7 +14,7 @@
       <input class="form-row" id="content" formControlName="content">
     </div>
     <span class="helper-text" *ngIf="detailsForm.get('content').invalid&&detailsForm.get('content').touched">This field is required</span>
-    <a [routerLink]="['']" class="back-button">Back</a>
+    <a [routerLink]="['/list']" class="back-button">Back</a>
     <button class="submit-button" type="submit" [disabled]="!detailsForm.valid || detailsForm.disabled">Save</button>
   </form>
 </div>
