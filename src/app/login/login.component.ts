@@ -19,9 +19,6 @@ export class LoginComponent implements OnInit, OnDestroy {
     private router: Router,
     private fb: FormBuilder,
     private auth: AuthService) {
-    this.router.routeReuseStrategy.shouldReuseRoute = function () {
-      return false;
-    };
   }
   ngOnInit(): void {
     this.route.queryParams.subscribe((params: Params) => {
@@ -43,7 +40,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.loginForm.disable();
     this.aSub = this.auth.login(this.loginForm.value).subscribe(
       () => {
-        this.router.navigate(['/list']);
+        this.router.navigate(['list']);
       },
       error => {
         console.warn('error');

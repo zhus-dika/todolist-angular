@@ -3,6 +3,12 @@ a {
   color: darkgoldenrod;
   margin-right: 5%;
 }
+.header-logout {
+  background: cadetblue;
+  color: darkgoldenrod;
+  border: none;
+  height: 50px;
+}
 h5 {
   margin-right: 5%;
 }

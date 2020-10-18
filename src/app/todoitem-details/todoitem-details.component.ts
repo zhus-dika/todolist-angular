@@ -37,6 +37,7 @@ export class TodoitemDetailsComponent implements OnInit {
     this.todoitem.status = status;
   }
   saveChanges(): void {
+    this.detailsForm.disable();
     const updatedTodoitem = {
       id: this.todoitem.id,
       content: this.detailsForm.get('content').value,
@@ -46,8 +47,10 @@ export class TodoitemDetailsComponent implements OnInit {
     this.todoitemService.update(updatedTodoitem).subscribe(
       (res) => {
         this.todoitem = res;
+        this.detailsForm.enable();
       } ,
       error => {
+        this.detailsForm.enable();
         console.warn('error');
       }
     );

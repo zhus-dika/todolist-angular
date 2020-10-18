@@ -7,7 +7,6 @@ import {AuthLayoutComponent} from './shared/layouts/auth-layout/auth-layout.comp
 import {RegisterComponent} from './register/register.component';
 import {AuthGuard} from './shared/classes/auth.guard';
 import {MainLayoutComponent} from './shared/layouts/main-layout/main-layout.component';
-import {TodoitemComponent} from './todoitem/todoitem.component';
 import {NewTodoitemComponent} from './new-todoitem/new-todoitem.component';
 import {TodoitemDetailsComponent} from './todoitem-details/todoitem-details.component';
 const routes: Routes = [
@@ -15,6 +14,7 @@ const routes: Routes = [
     path: '',
     component: AuthLayoutComponent,
     children: [
+      {path: '', component: TodoitemListComponent},
       {path: 'login', component: LoginComponent},
       {path: 'register', component: RegisterComponent}
     ]
@@ -32,7 +32,8 @@ const routes: Routes = [
 ];
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, {useHash: true})
+    RouterModule.forRoot(routes, {useHash: true, onSameUrlNavigation: 'reload'}),
+
   ],
   exports: [
     BrowserModule

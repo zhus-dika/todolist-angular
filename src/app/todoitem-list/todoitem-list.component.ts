@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {TodoitemService} from '../shared/services/todoitem.service';
 import {Todoitem} from '../shared/interfaces';
-import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-todoitem-list',

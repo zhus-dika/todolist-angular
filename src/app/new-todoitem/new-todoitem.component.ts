@@ -25,15 +25,17 @@ export class NewTodoitemComponent implements OnInit {
   }
   // tslint:disable-next-line:typedef
   saveChanges() {
+    this.detailsForm.disable();
     this.todoitemService.create(this.detailsForm.get('content').value).subscribe(
       (res) => {
         console.log(res);
+        this.location.back();
       } ,
       error => {
+        this.detailsForm.enable();
         console.warn('error');
       }
     );
-    this.location.back();
   }
 
 }

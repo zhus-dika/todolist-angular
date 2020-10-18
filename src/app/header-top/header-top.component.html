@@ -2,7 +2,12 @@
   <a [routerLink]="['/list']">
     <h2>My todolist</h2>
   </a>
-  <div class="header-login">
+  <div *ngIf="logged" class="header-login">
+    <button class="header-logout" (click)="logout()">
+      <h4>Log out</h4>
+    </button>
+  </div>
+  <div *ngIf="!logged" class="header-login">
     <a [routerLink]="['/login']">
       <h4>Login</h4>
     </a>

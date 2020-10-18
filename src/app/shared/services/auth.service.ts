@@ -13,7 +13,7 @@ export class AuthService {
   }
   // tslint:disable-next-line:typedef
   login(user: User): Observable<{token: string}> {
-    return this.http.post<{token: string}>('http://localhost:8077/api/auth/login', user)
+    return this.http.post<{token: string}>('/api/auth/login', user)
       .pipe(
         tap(
           (token) => {
@@ -38,7 +38,7 @@ export class AuthService {
     localStorage.removeItem('auth-token');
   }
   register(user: User): Observable<User> {
-    return this.http.post<User>('http://localhost:8077/api/auth/register', user);
+    return this.http.post<User>('/api/auth/register', user);
   }
 
 }
