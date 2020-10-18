@@ -6,10 +6,10 @@
       <option value="created">Created</option>
       <option value="completed">Completed</option>
     </select>
-    <a class="new-item" [routerLink]="['new']">New item</a>
+    <a class="new-item" [routerLink]="['/new']">New item</a>
   </div>
   <div *ngIf="filteredTodoitems.length===0">No items found</div>
-  <div class="todoitemlist" *ngIf="filteredTodoitems.length">
+  <div class="todoitemlist" *ngIf="filteredTodoitems.length>0">
     <app-todoitem  *ngFor="let todoitem of filteredTodoitems" [todoitem]="todoitem"></app-todoitem>
   </div>
 </div>

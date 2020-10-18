@@ -17,13 +17,14 @@ export class AuthService {
       .pipe(
         tap(
           (token) => {
-            localStorage.setItem('auth-token', token);
+            // @ts-ignore
+            localStorage.setItem('auth-token', token.token);
             this.setToken(token);
           }
         )
       );
   }
-  setToken(token: string): void {
+  setToken(token): void {
     this.token = token;
   }
   getToken(): string {
@@ -36,6 +37,8 @@ export class AuthService {
     this.setToken(null);
     localStorage.removeItem('auth-token');
   }
-  register(): void{}
+  register(user: User): Observable<User> {
+    return this.http.post<User>('http://localhost:8077/api/auth/register', user);
+  }
 
 }

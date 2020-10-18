@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
-import {todoitems} from '../todoitems';
+import {TodoitemService} from '../shared/services/todoitem.service';
 
 @Component({
   selector: 'app-new-todoitem',
@@ -15,7 +15,8 @@ export class NewTodoitemComponent implements OnInit {
   created = (new Date).toISOString();
   constructor(private route: ActivatedRoute,
               private fb: FormBuilder,
-              private location: Location) { }
+              private location: Location,
+              private todoitemService: TodoitemService) { }
   ngOnInit(): void {
     this.detailsForm = new FormGroup({
       content: new FormControl(null, Validators.required),
@@ -24,7 +25,14 @@ export class NewTodoitemComponent implements OnInit {
   }
   // tslint:disable-next-line:typedef
   saveChanges() {
-    console.log(this.detailsForm);
+    this.todoitemService.create(this.detailsForm.get('content').value).subscribe(
+      (res) => {
+        console.log(res);
+      } ,
+      error => {
+        console.warn('error');
+      }
+    );
     this.location.back();
   }
 

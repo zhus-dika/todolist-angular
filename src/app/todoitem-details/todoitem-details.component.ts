@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {todoitems} from '../todoitems';
 import {ActivatedRoute} from '@angular/router';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { Location } from '@angular/common';
@@ -16,7 +15,7 @@ export class TodoitemDetailsComponent implements OnInit {
               private location: Location) { }
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
-      this.todoitem = todoitems[+params.get('todoitemId')];
+      this.todoitem = null;
     });
     this.detailsForm = new FormGroup({
       content: new FormControl('learn Angular', Validators.required),
