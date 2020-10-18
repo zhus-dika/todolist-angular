@@ -9,7 +9,8 @@ import {Observable} from 'rxjs';
   styleUrls: ['./todoitem-list.component.css']
 })
 export class TodoitemListComponent implements OnInit {
-  filteredTodoitems: any[];
+  todoitems: Todoitem[];
+  filteredTodoitems: Todoitem[];
   selectedStatus = 'all';
   constructor(
     private todoitemService: TodoitemService
@@ -19,6 +20,7 @@ export class TodoitemListComponent implements OnInit {
     this.todoitemService.getAll().subscribe(
       (res) => {
         this.filteredTodoitems = res;
+        this.todoitems = res;
         console.log(this.filteredTodoitems);
       } ,
       error => {
@@ -27,6 +29,6 @@ export class TodoitemListComponent implements OnInit {
     );
   }
   changeFilter(): void {
-    this.filteredTodoitems = this.filteredTodoitems.filter(ele => ele.status === this.selectedStatus || this.selectedStatus === 'all');
+    this.filteredTodoitems = this.todoitems.filter(ele => ele.status === this.selectedStatus || this.selectedStatus === 'all');
   }
 }

@@ -11,7 +11,7 @@
     </div>
     <div class="form-item">
       <label for="status">Status</label>
-      <select class="form-row" id="status">
+      <select class="form-row" id="status" formControlName="status">
         <option class="form-option" value="created" [selected]="'created'===todoitem.status">Created</option>
         <option class="form-option" value="completed" [selected]="'completed'===todoitem.status">Completed</option>
       </select>
@@ -20,7 +20,7 @@
       <label for="content">Content</label>
       <input class="form-row" id="content" formControlName="content">
     </div>
-    <a [routerLink]="['']" class="back-button">Back</a>
+    <a [routerLink]="['/list']" class="back-button">Back</a>
     <button class="submit-button" type="submit" [disabled]="!detailsForm.valid">Save</button>
   </form>
 </div>

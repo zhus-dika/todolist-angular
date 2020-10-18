@@ -19,11 +19,13 @@ export class LoginComponent implements OnInit, OnDestroy {
     private router: Router,
     private fb: FormBuilder,
     private auth: AuthService) {
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    };
   }
   ngOnInit(): void {
     this.route.queryParams.subscribe((params: Params) => {
       if (params['registered']){
-        //Now you can login to system
       } else if(params['accessDenied']){
         //You have to authorize
       }
@@ -40,7 +42,9 @@ export class LoginComponent implements OnInit, OnDestroy {
   login() {
     this.loginForm.disable();
     this.aSub = this.auth.login(this.loginForm.value).subscribe(
-      () => this.router.navigate(['']),
+      () => {
+        this.router.navigate(['/list']);
+      },
       error => {
         console.warn('error');
         this.loginForm.enable();

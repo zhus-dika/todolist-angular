@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Input } from '@angular/core';
+import {TodoitemService} from '../shared/services/todoitem.service';
 
 @Component({
   selector: 'app-todoitem',
@@ -9,11 +10,22 @@ import { Input } from '@angular/core';
 export class TodoitemComponent implements OnInit {
   @Input() todoitem;
   todoitemId: number;
-  constructor() { }
+  constructor(
+    private todoitemService: TodoitemService
+  ) { }
 
   ngOnInit(): void {
+
   }
-  // tslint:disable-next-line:typedef
-  remove() {
+  remove(): void {
+    this.todoitemService.delete(this.todoitem.id).subscribe(
+      (res) => {
+        console.log('Item deleted');
+        location.reload();
+      } ,
+      error => {
+        console.warn('error');
+      }
+    );
   }
 }
